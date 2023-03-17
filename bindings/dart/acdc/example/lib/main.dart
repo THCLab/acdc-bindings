@@ -16,35 +16,27 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
   final _acdcPlugin = Acdc();
+  late var acdc;
+  late var encoded;
+  late var loaded;
+  String issuer = "";
+  String data = "";
+  String schema = "";
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    asyncInit();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      platformVersion =
-          await _acdcPlugin.getPlatformVersion() ?? 'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
+  Future<void> asyncInit() async {
+    acdc = await _acdcPlugin.newStaticMethodAcdc(
+        issuer: "Issuer",
+        schema: "EFNWOR0fQbv_J6EL0pJlvCxEpbu4bg1AurHgr_0A7LKc",
+        data: """{"hello":"world"}""");
+    encoded = await _acdcPlugin.encodeMethodAcdc(that: acdc);
+    loaded = await _acdcPlugin.parseStaticMethodAcdc(stream: encoded);
   }
 
   @override
@@ -52,11 +44,43 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('ACDC example'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
-        ),
+            child: Column(
+          children: [
+            TextButton(
+                onPressed: () async {
+                  await _acdcPlugin
+                      .getIssuerMethodAcdc(that: acdc)
+                      .then((value) => setState(() {
+                            issuer = value;
+                          }));
+                },
+                child: Text("Get issuer")),
+            issuer.isNotEmpty ? Text("issuer: $issuer") : Container(),
+            TextButton(
+                onPressed: () async {
+                  await _acdcPlugin
+                      .getDataMethodAcdc(that: acdc)
+                      .then((value) => setState(() {
+                            data = value;
+                          }));
+                },
+                child: Text("Get data")),
+            data.isNotEmpty ? Text("data: $data") : Container(),
+            TextButton(
+                onPressed: () async {
+                  await _acdcPlugin
+                      .getSchemaMethodAcdc(that: acdc)
+                      .then((value) => setState(() {
+                            schema = value;
+                          }));
+                },
+                child: Text("Get schema")),
+            schema.isNotEmpty ? Text("schema: $schema") : Container(),
+          ],
+        )),
       ),
     );
   }
