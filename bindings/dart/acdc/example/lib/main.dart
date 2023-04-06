@@ -31,12 +31,12 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> asyncInit() async {
-    acdc = await _acdcPlugin.newStaticMethodAcdc(
+    acdc = await Acdc.newStaticMethodAcdc(
         issuer: "Issuer",
         schema: "EFNWOR0fQbv_J6EL0pJlvCxEpbu4bg1AurHgr_0A7LKc",
         data: """{"hello":"world"}""");
-    encoded = await _acdcPlugin.encodeMethodAcdc(that: acdc);
-    loaded = await _acdcPlugin.parseStaticMethodAcdc(stream: encoded);
+    encoded = await Acdc.encodeMethodAcdc(that: acdc);
+    loaded = await Acdc.parseStaticMethodAcdc(stream: encoded);
   }
 
   @override
@@ -51,8 +51,7 @@ class _MyAppState extends State<MyApp> {
           children: [
             TextButton(
                 onPressed: () async {
-                  await _acdcPlugin
-                      .getIssuerMethodAcdc(that: acdc)
+                  await Acdc.getIssuerMethodAcdc(that: acdc)
                       .then((value) => setState(() {
                             issuer = value;
                           }));
@@ -61,8 +60,7 @@ class _MyAppState extends State<MyApp> {
             issuer.isNotEmpty ? Text("issuer: $issuer") : Container(),
             TextButton(
                 onPressed: () async {
-                  await _acdcPlugin
-                      .getDataMethodAcdc(that: acdc)
+                  await Acdc.getDataMethodAcdc(that: acdc)
                       .then((value) => setState(() {
                             data = value;
                           }));
@@ -71,8 +69,7 @@ class _MyAppState extends State<MyApp> {
             data.isNotEmpty ? Text("data: $data") : Container(),
             TextButton(
                 onPressed: () async {
-                  await _acdcPlugin
-                      .getSchemaMethodAcdc(that: acdc)
+                  await Acdc.getSchemaMethodAcdc(that: acdc)
                       .then((value) => setState(() {
                             schema = value;
                           }));
