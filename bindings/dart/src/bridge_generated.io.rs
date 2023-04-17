@@ -6,9 +6,9 @@ pub extern "C" fn wire_new__static_method__ACDC(
     port_: i64,
     issuer: *mut wire_uint_8_list,
     schema: *mut wire_uint_8_list,
-    data: *mut wire_uint_8_list,
+    attributes: *mut wire_uint_8_list,
 ) {
-    wire_new__static_method__ACDC_impl(port_, issuer, schema, data)
+    wire_new__static_method__ACDC_impl(port_, issuer, schema, attributes)
 }
 
 #[no_mangle]
@@ -29,6 +29,11 @@ pub extern "C" fn wire_get_data__method__ACDC(port_: i64, that: *mut wire_ACDC) 
 #[no_mangle]
 pub extern "C" fn wire_get_schema__method__ACDC(port_: i64, that: *mut wire_ACDC) {
     wire_get_schema__method__ACDC_impl(port_, that)
+}
+
+#[no_mangle]
+pub extern "C" fn wire_get_digest__method__ACDC(port_: i64, that: *mut wire_ACDC) {
+    wire_get_digest__method__ACDC_impl(port_, that)
 }
 
 #[no_mangle]

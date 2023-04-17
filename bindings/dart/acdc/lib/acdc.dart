@@ -15,7 +15,7 @@ class Acdc {
       required String data,
       dynamic hint}) async {
     return await api.newStaticMethodAcdc(
-        issuer: issuer, schema: schema, data: data);
+        issuer: issuer, schema: schema, attributes: data);
   }
 
   static Future<String> encodeMethodAcdc(

@@ -37,7 +37,7 @@ intptr_t init_frb_dart_api_dl(void *obj);
 void wire_new__static_method__ACDC(int64_t port_,
                                    struct wire_uint_8_list *issuer,
                                    struct wire_uint_8_list *schema,
-                                   struct wire_uint_8_list *data);
+                                   struct wire_uint_8_list *attributes);
 
 void wire_encode__method__ACDC(int64_t port_, struct wire_ACDC *that);
 
@@ -46,6 +46,8 @@ void wire_get_issuer__method__ACDC(int64_t port_, struct wire_ACDC *that);
 void wire_get_data__method__ACDC(int64_t port_, struct wire_ACDC *that);
 
 void wire_get_schema__method__ACDC(int64_t port_, struct wire_ACDC *that);
+
+void wire_get_digest__method__ACDC(int64_t port_, struct wire_ACDC *that);
 
 void wire_parse__static_method__ACDC(int64_t port_, struct wire_uint_8_list *stream);
 
@@ -68,6 +70,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_get_issuer__method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_get_data__method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_get_schema__method__ACDC);
+    dummy_var ^= ((int64_t) (void*) wire_get_digest__method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_parse__static_method__ACDC);
     dummy_var ^= ((int64_t) (void*) new_Attestation);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_acdc_0);

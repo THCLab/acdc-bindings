@@ -324,6 +324,7 @@ dependencies = [
  "acdc",
  "anyhow",
  "flutter_rust_bridge",
+ "indexmap",
  "said",
  "serde_json",
 ]
