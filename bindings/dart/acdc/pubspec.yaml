@@ -1,10 +1,10 @@
 name: acdc
 description: Dart client for generating an `ACDC` object from provided id, data and schema.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/THCLab/acdc-bindings/tree/main/bindings/dart/acdc
 
 environment:
-  sdk: '>=2.19.2 <3.0.0'
+  sdk: '>=2.19.2 <4.0.0'
   flutter: ">=2.5.0"
 
 dependencies:

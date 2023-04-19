@@ -51,6 +51,7 @@ class _MyAppState extends State<MyApp> {
           children: [
             TextButton(
                 onPressed: () async {
+                  //print(await Acdc.parseStaticMethodAcdc(stream: '{"d":"digest"}'));
                   await Acdc.getIssuerMethodAcdc(that: acdc)
                       .then((value) => setState(() {
                             issuer = value;
