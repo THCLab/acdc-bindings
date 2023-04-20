@@ -5,12 +5,12 @@ import 'bridge_generated.dart';
 
 class Acdc {
   static const base = 'acdcdart';
-  static final path = Platform.isWindows? '$base.dll' : 'lib$base.so';
-  static late final dylib = Platform.isIOS
+  static final path = Platform.isWindows ? '$base.dll' : 'lib$base.so';
+  static final dylib = Platform.isIOS
       ? DynamicLibrary.process()
       : Platform.isMacOS
-      ? DynamicLibrary.executable()
-      : DynamicLibrary.open(path);
+          ? DynamicLibrary.executable()
+          : DynamicLibrary.open(path);
   static final api = DartImpl(dylib);
 
   static Future<ACDC> newStaticMethodAcdc(
