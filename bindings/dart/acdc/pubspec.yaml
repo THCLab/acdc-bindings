@@ -31,4 +31,6 @@ flutter:
         pluginClass: AcdcPlugin
       windows:
         pluginClass: AcdcPluginCApi
+      macos:
+        pluginClass: AcdcPlugin
 
