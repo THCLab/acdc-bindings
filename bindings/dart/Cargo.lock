@@ -5,8 +5,9 @@ version = 3
 [[package]]
 name = "acdc"
 version = "0.1.0"
-source = "git+https://github.com/THCLab/acdc-rust#94071e588c4bbeed8fe46924530b90199cb90aaf"
+source = "git+https://github.com/THCLab/acdc-rust#56f5bf2a2344a2216a3c36f53be8b8e6297d1a34"
 dependencies = [
+ "indexmap",
  "rmp-serde 0.15.5",
  "said",
  "serde",
@@ -165,7 +166,7 @@ checksum = "50d30906286121d95be3d479533b458f87493b30a4b5f79a607db8f5d11aa91f"
 [[package]]
 name = "cesrox"
 version = "0.1.3"
-source = "git+https://github.com/THCLab/cesrox#817f837678fe407c34a29b7b167727a2f80736b6"
+source = "git+https://github.com/THCLab/cesrox#1504464637ba08d1d3a469826279760db542cb86"
 dependencies = [
  "base64",
  "chrono",
@@ -297,7 +298,7 @@ dependencies = [
  "proc-macro2",
  "quote",
  "scratch",
- "syn 2.0.13",
+ "syn 2.0.15",
 ]
 
 [[package]]
@@ -314,7 +315,7 @@ checksum = "2345488264226bf682893e25de0769f3360aac9957980ec49361b083ddaa5bc5"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.15",
 ]
 
 [[package]]
@@ -349,9 +350,9 @@ dependencies = [
 
 [[package]]
 name = "flutter_rust_bridge"
-version = "1.72.1"
+version = "1.75.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a85cf0e90d520425ac9bfca66e97b400782475d3091f4b75cadc210897c098c2"
+checksum = "f29eab4bcef83a8266245c863fdbe5bce9180f17810b24d55b8ff7b358859ada"
 dependencies = [
  "allo-isolate",
  "anyhow",
@@ -374,9 +375,9 @@ dependencies = [
 
 [[package]]
 name = "flutter_rust_bridge_macros"
-version = "1.72.1"
+version = "1.75.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6a65b1cb0d5cc83085f9cbccbeadd35c4e90a67166fa7d72ef984ba9a960a222"
+checksum = "ce1baf51f3f321881ab2a44a0685aa9224474f69c5d029a99af13d0b858914ab"
 
 [[package]]
 name = "generic-array"
@@ -450,6 +451,7 @@ checksum = "bd070e393353796e801d209ad339e89596eb4c8d430d18ede6a1cced8fafbd99"
 dependencies = [
  "autocfg",
  "hashbrown",
+ "serde",
 ]
 
 [[package]]
@@ -681,19 +683,30 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f91339c0467de62360649f8d3e185ca8de4224ff281f66000de5eb2a77a79041"
 
 [[package]]
+name = "sad_macros"
+version = "0.1.0"
+source = "git+https://github.com/THCLab/cesrox#1504464637ba08d1d3a469826279760db542cb86"
+dependencies = [
+ "quote",
+ "syn 1.0.109",
+]
+
+[[package]]
 name = "said"
 version = "0.1.0"
-source = "git+https://github.com/THCLab/cesrox#817f837678fe407c34a29b7b167727a2f80736b6"
+source = "git+https://github.com/THCLab/cesrox#1504464637ba08d1d3a469826279760db542cb86"
 dependencies = [
  "base64",
  "blake2",
  "blake3",
  "cesrox",
  "clap",
+ "sad_macros",
  "serde",
  "sha2",
  "sha3",
  "thiserror",
+ "version",
 ]
 
 [[package]]
@@ -710,9 +723,9 @@ checksum = "1792db035ce95be60c3f8853017b3999209281c24e2ba5bc8e59bf97a0c590c1"
 
 [[package]]
 name = "serde"
-version = "1.0.159"
+version = "1.0.160"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3c04e8343c3daeec41f58990b9d77068df31209f2af111e059e9fe9646693065"
+checksum = "bb2f3770c8bce3bcda7e149193a069a0f4365bda1fa5cd88e03bca26afc1216c"
 dependencies = [
  "serde_derive",
 ]
@@ -729,20 +742,20 @@ dependencies = [
 
 [[package]]
 name = "serde_derive"
-version = "1.0.159"
+version = "1.0.160"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4c614d17805b093df4b147b51339e7e44bf05ef59fba1e45d83500bcfb4d8585"
+checksum = "291a097c63d8497e00160b166a967a4a79c64f3facdd01cbd7502231688d77df"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.15",
 ]
 
 [[package]]
 name = "serde_json"
-version = "1.0.95"
+version = "1.0.96"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d721eca97ac802aa7777b701877c8004d950fc142651367300d21c1cc0194744"
+checksum = "057d394a50403bcac12672b2b18fb387ab6d289d957dab67dd201875391e52f1"
 dependencies = [
  "itoa",
  "ryu",
@@ -805,9 +818,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "2.0.13"
+version = "2.0.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4c9da457c5285ac1f936ebd076af6dac17a61cfe7826f2076b4d015cf47bc8ec"
+checksum = "a34fcf3e8b60f57e6a14301a2e916d323af98b0ea63c599441eec8558660c822"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -846,7 +859,7 @@ checksum = "f9456a42c5b0d803c8cd86e73dd7cc9edd429499f37a3550d286d5e86720569f"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.15",
 ]
 
 [[package]]
@@ -890,7 +903,7 @@ checksum = "c0edd1e5b14653f783770bce4a4dabb4a5108a5370a5f5d8cfe8710c361f6c8b"
 [[package]]
 name = "version"
 version = "0.1.0"
-source = "git+https://github.com/THCLab/cesrox#817f837678fe407c34a29b7b167727a2f80736b6"
+source = "git+https://github.com/THCLab/cesrox#1504464637ba08d1d3a469826279760db542cb86"
 dependencies = [
  "nom",
  "rmp-serde 0.15.5",
