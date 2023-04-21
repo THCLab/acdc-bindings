@@ -43,7 +43,7 @@ impl ACDC {
     }
 
     pub fn get_digest(&self) -> String {
-        self.0.digest.to_string()
+        self.0.digest.as_ref().expect("Missing digest").to_string()
     }
 
     pub fn parse(stream: String) -> Result<ACDC> {
