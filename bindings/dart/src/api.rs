@@ -8,7 +8,7 @@ pub struct ACDC(pub RustOpaque<Attestation>);
 
 impl ACDC {
     pub fn new(issuer: String, schema: String, attributes: String) -> Result<ACDC> {
-        let attributes: IndexMap<String, String> = serde_json::from_str(&attributes)
+        let attributes: IndexMap<String, serde_json::Value> = serde_json::from_str(&attributes)
             .with_context(|| "Attributes must be valid JSON".to_string())?;
         // TODO Stop using default hash function algorithm
         let derivation = HashFunctionCode::Blake3_256;
