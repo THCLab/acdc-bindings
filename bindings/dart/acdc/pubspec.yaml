@@ -1,6 +1,6 @@
 name: acdc
 description: Dart client for generating an `ACDC` object from provided id, data and schema.
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/THCLab/acdc-bindings/tree/main/bindings/dart/acdc
 
 environment:

@@ -12,3 +12,6 @@ Added support for Windows, MacOS (tested) and iOS (wip)
 
 ## 0.1.1
 Fixed boolean support (new .so files) for Android
+
+## 0.1.2
+New .so files
