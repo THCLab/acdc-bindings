@@ -45,6 +45,17 @@ void wire_issue_public_targeted__static_method__ACDC(int64_t port_,
                                                      struct wire_uint_8_list *schema,
                                                      struct wire_uint_8_list *attributes);
 
+void wire_issue_private_untargeted__static_method__ACDC(int64_t port_,
+                                                        struct wire_uint_8_list *issuer,
+                                                        struct wire_uint_8_list *schema,
+                                                        struct wire_uint_8_list *attributes);
+
+void wire_issue_private_targeted__static_method__ACDC(int64_t port_,
+                                                      struct wire_uint_8_list *issuer,
+                                                      struct wire_uint_8_list *target,
+                                                      struct wire_uint_8_list *schema,
+                                                      struct wire_uint_8_list *attributes);
+
 void wire_encode__method__ACDC(int64_t port_, struct wire_ACDC *that);
 
 void wire_get_issuer__method__ACDC(int64_t port_, struct wire_ACDC *that);
@@ -73,6 +84,8 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     int64_t dummy_var = 0;
     dummy_var ^= ((int64_t) (void*) wire_issue_public_untargeted__static_method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_issue_public_targeted__static_method__ACDC);
+    dummy_var ^= ((int64_t) (void*) wire_issue_private_untargeted__static_method__ACDC);
+    dummy_var ^= ((int64_t) (void*) wire_issue_private_targeted__static_method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_encode__method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_get_issuer__method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_get_data__method__ACDC);

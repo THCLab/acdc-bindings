@@ -45,6 +45,44 @@ impl ACDC {
         Ok(ACDC(RustOpaque::new(attestation)))
     }
 
+    pub fn issue_private_untargeted(
+        issuer: String,
+        schema: String,
+        attributes: String,
+    ) -> Result<ACDC> {
+        let attributes: InlineAttributes = attributes
+            .parse()
+            .with_context(|| "Attributes must be valid JSON".to_string())?;
+        let attestation = Attestation::new_private_untargeted(
+            &issuer,
+            schema
+                .parse()
+                .with_context(|| "Invalid schema SAI".to_string())?,
+            attributes,
+        );
+        Ok(ACDC(RustOpaque::new(attestation)))
+    }
+
+    pub fn issue_private_targeted(
+        issuer: String,
+        target: String,
+        schema: String,
+        attributes: String,
+    ) -> Result<ACDC> {
+        let attributes: InlineAttributes = attributes
+            .parse()
+            .with_context(|| "Attributes must be valid JSON".to_string())?;
+        let attestation = Attestation::new_private_targeted(
+            &issuer,
+            &target,
+            schema
+                .parse()
+                .with_context(|| "Invalid schema SAI".to_string())?,
+            attributes,
+        );
+        Ok(ACDC(RustOpaque::new(attestation)))
+    }
+
     pub fn encode(&self) -> Result<String> {
         Ok(String::from_utf8(self.0.encode()?)?)
     }
