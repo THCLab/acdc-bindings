@@ -21,7 +21,7 @@ use std::sync::Arc;
 
 // Section: wire functions
 
-fn wire_new__static_method__ACDC_impl(
+fn wire_issue_public_untargeted__static_method__ACDC_impl(
     port_: MessagePort,
     issuer: impl Wire2Api<String> + UnwindSafe,
     schema: impl Wire2Api<String> + UnwindSafe,
@@ -29,7 +29,7 @@ fn wire_new__static_method__ACDC_impl(
 ) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "new__static_method__ACDC",
+            debug_name: "issue_public_untargeted__static_method__ACDC",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
@@ -37,7 +37,33 @@ fn wire_new__static_method__ACDC_impl(
             let api_issuer = issuer.wire2api();
             let api_schema = schema.wire2api();
             let api_attributes = attributes.wire2api();
-            move |task_callback| ACDC::new(api_issuer, api_schema, api_attributes)
+            move |task_callback| {
+                ACDC::issue_public_untargeted(api_issuer, api_schema, api_attributes)
+            }
+        },
+    )
+}
+fn wire_issue_public_targeted__static_method__ACDC_impl(
+    port_: MessagePort,
+    issuer: impl Wire2Api<String> + UnwindSafe,
+    target: impl Wire2Api<String> + UnwindSafe,
+    schema: impl Wire2Api<String> + UnwindSafe,
+    attributes: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "issue_public_targeted__static_method__ACDC",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_issuer = issuer.wire2api();
+            let api_target = target.wire2api();
+            let api_schema = schema.wire2api();
+            let api_attributes = attributes.wire2api();
+            move |task_callback| {
+                ACDC::issue_public_targeted(api_issuer, api_target, api_schema, api_attributes)
+            }
         },
     )
 }

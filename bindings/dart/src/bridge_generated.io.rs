@@ -2,13 +2,24 @@ use super::*;
 // Section: wire functions
 
 #[no_mangle]
-pub extern "C" fn wire_new__static_method__ACDC(
+pub extern "C" fn wire_issue_public_untargeted__static_method__ACDC(
     port_: i64,
     issuer: *mut wire_uint_8_list,
     schema: *mut wire_uint_8_list,
     attributes: *mut wire_uint_8_list,
 ) {
-    wire_new__static_method__ACDC_impl(port_, issuer, schema, attributes)
+    wire_issue_public_untargeted__static_method__ACDC_impl(port_, issuer, schema, attributes)
+}
+
+#[no_mangle]
+pub extern "C" fn wire_issue_public_targeted__static_method__ACDC(
+    port_: i64,
+    issuer: *mut wire_uint_8_list,
+    target: *mut wire_uint_8_list,
+    schema: *mut wire_uint_8_list,
+    attributes: *mut wire_uint_8_list,
+) {
+    wire_issue_public_targeted__static_method__ACDC_impl(port_, issuer, target, schema, attributes)
 }
 
 #[no_mangle]

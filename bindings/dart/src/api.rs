@@ -1,24 +1,46 @@
+use acdc::attributes::InlineAttributes;
 pub use acdc::Attestation;
 use anyhow::{Context, Result};
 use flutter_rust_bridge::RustOpaque;
-use indexmap::IndexMap;
-use said::derivation::HashFunctionCode;
+use said::version::Encode;
 
 pub struct ACDC(pub RustOpaque<Attestation>);
 
 impl ACDC {
-    pub fn new(issuer: String, schema: String, attributes: String) -> Result<ACDC> {
-        let attributes: IndexMap<String, serde_json::Value> = serde_json::from_str(&attributes)
+    pub fn issue_public_untargeted(
+        issuer: String,
+        schema: String,
+        attributes: String,
+    ) -> Result<ACDC> {
+        let attributes: InlineAttributes = attributes
+            .parse()
             .with_context(|| "Attributes must be valid JSON".to_string())?;
-        // TODO Stop using default hash function algorithm
-        let derivation = HashFunctionCode::Blake3_256;
-        let attestation = Attestation::new(
+        let attestation = Attestation::new_public_untargeted(
             &issuer,
             schema
                 .parse()
                 .with_context(|| "Invalid schema SAI".to_string())?,
-            derivation.into(),
-            acdc::Attributes::Inline(attributes),
+            attributes,
+        );
+        Ok(ACDC(RustOpaque::new(attestation)))
+    }
+
+    pub fn issue_public_targeted(
+        issuer: String,
+        target: String,
+        schema: String,
+        attributes: String,
+    ) -> Result<ACDC> {
+        let attributes: InlineAttributes = attributes
+            .parse()
+            .with_context(|| "Attributes must be valid JSON".to_string())?;
+        let attestation = Attestation::new_public_targeted(
+            &issuer,
+            &target,
+            schema
+                .parse()
+                .with_context(|| "Invalid schema SAI".to_string())?,
+            attributes,
         );
         Ok(ACDC(RustOpaque::new(attestation)))
     }
