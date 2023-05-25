@@ -10,13 +10,43 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge.dart';
 import 'dart:ffi' as ffi;
 
 abstract class Dart {
-  Future<ACDC> newStaticMethodAcdc(
+  Future<ACDC> issuePublicUntargetedStaticMethodAcdc(
       {required String issuer,
       required String schema,
       required String attributes,
       dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta get kNewStaticMethodAcdcConstMeta;
+  FlutterRustBridgeTaskConstMeta
+      get kIssuePublicUntargetedStaticMethodAcdcConstMeta;
+
+  Future<ACDC> issuePublicTargetedStaticMethodAcdc(
+      {required String issuer,
+      required String target,
+      required String schema,
+      required String attributes,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kIssuePublicTargetedStaticMethodAcdcConstMeta;
+
+  Future<ACDC> issuePrivateUntargetedStaticMethodAcdc(
+      {required String issuer,
+      required String schema,
+      required String attributes,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kIssuePrivateUntargetedStaticMethodAcdcConstMeta;
+
+  Future<ACDC> issuePrivateTargetedStaticMethodAcdc(
+      {required String issuer,
+      required String target,
+      required String schema,
+      required String attributes,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kIssuePrivateTargetedStaticMethodAcdcConstMeta;
 
   Future<String> encodeMethodAcdc({required ACDC that, dynamic hint});
 
@@ -26,9 +56,9 @@ abstract class Dart {
 
   FlutterRustBridgeTaskConstMeta get kGetIssuerMethodAcdcConstMeta;
 
-  Future<String> getDataMethodAcdc({required ACDC that, dynamic hint});
+  Future<String> getAttributesMethodAcdc({required ACDC that, dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta get kGetDataMethodAcdcConstMeta;
+  FlutterRustBridgeTaskConstMeta get kGetAttributesMethodAcdcConstMeta;
 
   Future<String> getSchemaMethodAcdc({required ACDC that, dynamic hint});
 
@@ -70,14 +100,51 @@ class ACDC {
     required this.field0,
   });
 
-  static Future<ACDC> newACDC(
+  static Future<ACDC> issuePublicUntargeted(
           {required Dart bridge,
           required String issuer,
           required String schema,
           required String attributes,
           dynamic hint}) =>
-      bridge.newStaticMethodAcdc(
+      bridge.issuePublicUntargetedStaticMethodAcdc(
           issuer: issuer, schema: schema, attributes: attributes, hint: hint);
+
+  static Future<ACDC> issuePublicTargeted(
+          {required Dart bridge,
+          required String issuer,
+          required String target,
+          required String schema,
+          required String attributes,
+          dynamic hint}) =>
+      bridge.issuePublicTargetedStaticMethodAcdc(
+          issuer: issuer,
+          target: target,
+          schema: schema,
+          attributes: attributes,
+          hint: hint);
+
+  static Future<ACDC> issuePrivateUntargeted(
+          {required Dart bridge,
+          required String issuer,
+          required String schema,
+          required String attributes,
+          dynamic hint}) =>
+      bridge.issuePrivateUntargetedStaticMethodAcdc(
+          issuer: issuer, schema: schema, attributes: attributes, hint: hint);
+
+  static Future<ACDC> issuePrivateTargeted(
+          {required Dart bridge,
+          required String issuer,
+          required String target,
+          required String schema,
+          required String attributes,
+          dynamic hint}) =>
+      bridge.issuePrivateTargetedStaticMethodAcdc(
+          issuer: issuer,
+          target: target,
+          schema: schema,
+          attributes: attributes,
+          hint: hint);
 
   Future<String> encode({dynamic hint}) => bridge.encodeMethodAcdc(
         that: this,
@@ -87,7 +154,8 @@ class ACDC {
         that: this,
       );
 
-  Future<String> getData({dynamic hint}) => bridge.getDataMethodAcdc(
+  Future<String> getAttributes({dynamic hint}) =>
+      bridge.getAttributesMethodAcdc(
         that: this,
       );
 
@@ -112,7 +180,7 @@ class DartImpl implements Dart {
   factory DartImpl.wasm(FutureOr<WasmModule> module) =>
       DartImpl(module as ExternalLibrary);
   DartImpl.raw(this._platform);
-  Future<ACDC> newStaticMethodAcdc(
+  Future<ACDC> issuePublicUntargetedStaticMethodAcdc(
       {required String issuer,
       required String schema,
       required String attributes,
@@ -122,19 +190,103 @@ class DartImpl implements Dart {
     var arg2 = _platform.api2wire_String(attributes);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_new__static_method__ACDC(port_, arg0, arg1, arg2),
+          .wire_issue_public_untargeted__static_method__ACDC(
+              port_, arg0, arg1, arg2),
       parseSuccessData: (d) => _wire2api_acdc(d),
-      constMeta: kNewStaticMethodAcdcConstMeta,
+      constMeta: kIssuePublicUntargetedStaticMethodAcdcConstMeta,
       argValues: [issuer, schema, attributes],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kNewStaticMethodAcdcConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "new__static_method__ACDC",
-        argNames: ["issuer", "schema", "attributes"],
-      );
+  FlutterRustBridgeTaskConstMeta
+      get kIssuePublicUntargetedStaticMethodAcdcConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "issue_public_untargeted__static_method__ACDC",
+            argNames: ["issuer", "schema", "attributes"],
+          );
+
+  Future<ACDC> issuePublicTargetedStaticMethodAcdc(
+      {required String issuer,
+      required String target,
+      required String schema,
+      required String attributes,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(issuer);
+    var arg1 = _platform.api2wire_String(target);
+    var arg2 = _platform.api2wire_String(schema);
+    var arg3 = _platform.api2wire_String(attributes);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_issue_public_targeted__static_method__ACDC(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: (d) => _wire2api_acdc(d),
+      constMeta: kIssuePublicTargetedStaticMethodAcdcConstMeta,
+      argValues: [issuer, target, schema, attributes],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kIssuePublicTargetedStaticMethodAcdcConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "issue_public_targeted__static_method__ACDC",
+            argNames: ["issuer", "target", "schema", "attributes"],
+          );
+
+  Future<ACDC> issuePrivateUntargetedStaticMethodAcdc(
+      {required String issuer,
+      required String schema,
+      required String attributes,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(issuer);
+    var arg1 = _platform.api2wire_String(schema);
+    var arg2 = _platform.api2wire_String(attributes);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_issue_private_untargeted__static_method__ACDC(
+              port_, arg0, arg1, arg2),
+      parseSuccessData: (d) => _wire2api_acdc(d),
+      constMeta: kIssuePrivateUntargetedStaticMethodAcdcConstMeta,
+      argValues: [issuer, schema, attributes],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kIssuePrivateUntargetedStaticMethodAcdcConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "issue_private_untargeted__static_method__ACDC",
+            argNames: ["issuer", "schema", "attributes"],
+          );
+
+  Future<ACDC> issuePrivateTargetedStaticMethodAcdc(
+      {required String issuer,
+      required String target,
+      required String schema,
+      required String attributes,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(issuer);
+    var arg1 = _platform.api2wire_String(target);
+    var arg2 = _platform.api2wire_String(schema);
+    var arg3 = _platform.api2wire_String(attributes);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_issue_private_targeted__static_method__ACDC(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: (d) => _wire2api_acdc(d),
+      constMeta: kIssuePrivateTargetedStaticMethodAcdcConstMeta,
+      argValues: [issuer, target, schema, attributes],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kIssuePrivateTargetedStaticMethodAcdcConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "issue_private_targeted__static_method__ACDC",
+            argNames: ["issuer", "target", "schema", "attributes"],
+          );
 
   Future<String> encodeMethodAcdc({required ACDC that, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_acdc(that);
@@ -172,21 +324,21 @@ class DartImpl implements Dart {
         argNames: ["that"],
       );
 
-  Future<String> getDataMethodAcdc({required ACDC that, dynamic hint}) {
+  Future<String> getAttributesMethodAcdc({required ACDC that, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_acdc(that);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) =>
-          _platform.inner.wire_get_data__method__ACDC(port_, arg0),
+          _platform.inner.wire_get_attributes__method__ACDC(port_, arg0),
       parseSuccessData: _wire2api_String,
-      constMeta: kGetDataMethodAcdcConstMeta,
+      constMeta: kGetAttributesMethodAcdcConstMeta,
       argValues: [that],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kGetDataMethodAcdcConstMeta =>
+  FlutterRustBridgeTaskConstMeta get kGetAttributesMethodAcdcConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
-        debugName: "get_data__method__ACDC",
+        debugName: "get_attributes__method__ACDC",
         argNames: ["that"],
       );
 
@@ -439,13 +591,13 @@ class DartWire implements FlutterRustBridgeWireBase {
   late final _init_frb_dart_api_dl = _init_frb_dart_api_dlPtr
       .asFunction<int Function(ffi.Pointer<ffi.Void>)>();
 
-  void wire_new__static_method__ACDC(
+  void wire_issue_public_untargeted__static_method__ACDC(
     int port_,
     ffi.Pointer<wire_uint_8_list> issuer,
     ffi.Pointer<wire_uint_8_list> schema,
     ffi.Pointer<wire_uint_8_list> attributes,
   ) {
-    return _wire_new__static_method__ACDC(
+    return _wire_issue_public_untargeted__static_method__ACDC(
       port_,
       issuer,
       schema,
@@ -453,17 +605,113 @@ class DartWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_new__static_method__ACDCPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_new__static_method__ACDC');
-  late final _wire_new__static_method__ACDC =
-      _wire_new__static_method__ACDCPtr.asFunction<
+  late final _wire_issue_public_untargeted__static_method__ACDCPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_issue_public_untargeted__static_method__ACDC');
+  late final _wire_issue_public_untargeted__static_method__ACDC =
+      _wire_issue_public_untargeted__static_method__ACDCPtr.asFunction<
           void Function(int, ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_issue_public_targeted__static_method__ACDC(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> issuer,
+    ffi.Pointer<wire_uint_8_list> target,
+    ffi.Pointer<wire_uint_8_list> schema,
+    ffi.Pointer<wire_uint_8_list> attributes,
+  ) {
+    return _wire_issue_public_targeted__static_method__ACDC(
+      port_,
+      issuer,
+      target,
+      schema,
+      attributes,
+    );
+  }
+
+  late final _wire_issue_public_targeted__static_method__ACDCPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_issue_public_targeted__static_method__ACDC');
+  late final _wire_issue_public_targeted__static_method__ACDC =
+      _wire_issue_public_targeted__static_method__ACDCPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_issue_private_untargeted__static_method__ACDC(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> issuer,
+    ffi.Pointer<wire_uint_8_list> schema,
+    ffi.Pointer<wire_uint_8_list> attributes,
+  ) {
+    return _wire_issue_private_untargeted__static_method__ACDC(
+      port_,
+      issuer,
+      schema,
+      attributes,
+    );
+  }
+
+  late final _wire_issue_private_untargeted__static_method__ACDCPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_issue_private_untargeted__static_method__ACDC');
+  late final _wire_issue_private_untargeted__static_method__ACDC =
+      _wire_issue_private_untargeted__static_method__ACDCPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_issue_private_targeted__static_method__ACDC(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> issuer,
+    ffi.Pointer<wire_uint_8_list> target,
+    ffi.Pointer<wire_uint_8_list> schema,
+    ffi.Pointer<wire_uint_8_list> attributes,
+  ) {
+    return _wire_issue_private_targeted__static_method__ACDC(
+      port_,
+      issuer,
+      target,
+      schema,
+      attributes,
+    );
+  }
+
+  late final _wire_issue_private_targeted__static_method__ACDCPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_issue_private_targeted__static_method__ACDC');
+  late final _wire_issue_private_targeted__static_method__ACDC =
+      _wire_issue_private_targeted__static_method__ACDCPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_encode__method__ACDC(
     int port_,
@@ -499,22 +747,23 @@ class DartWire implements FlutterRustBridgeWireBase {
   late final _wire_get_issuer__method__ACDC = _wire_get_issuer__method__ACDCPtr
       .asFunction<void Function(int, ffi.Pointer<wire_ACDC>)>();
 
-  void wire_get_data__method__ACDC(
+  void wire_get_attributes__method__ACDC(
     int port_,
     ffi.Pointer<wire_ACDC> that,
   ) {
-    return _wire_get_data__method__ACDC(
+    return _wire_get_attributes__method__ACDC(
       port_,
       that,
     );
   }
 
-  late final _wire_get_data__method__ACDCPtr = _lookup<
+  late final _wire_get_attributes__method__ACDCPtr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_ACDC>)>>('wire_get_data__method__ACDC');
-  late final _wire_get_data__method__ACDC = _wire_get_data__method__ACDCPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_ACDC>)>();
+              ffi.Pointer<wire_ACDC>)>>('wire_get_attributes__method__ACDC');
+  late final _wire_get_attributes__method__ACDC =
+      _wire_get_attributes__method__ACDCPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_ACDC>)>();
 
   void wire_get_schema__method__ACDC(
     int port_,

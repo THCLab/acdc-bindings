@@ -15,3 +15,6 @@ Fixed boolean support (new .so files) for Android
 
 ## 0.1.2
 New .so files
+
+## 0.1.3
+Support for targeted/untargeted ACDC (Android)

@@ -31,10 +31,10 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> asyncInit() async {
-    acdc = await Acdc.newStaticMethodAcdc(
+    acdc = await Acdc.issuePrivateUntargetedStaticMethodAcdc(
         issuer: "Issuer",
         schema: "EFNWOR0fQbv_J6EL0pJlvCxEpbu4bg1AurHgr_0A7LKc",
-        data: """{"hello":"world"}""");
+        attributes: """{"hello":"world"}""");
     encoded = await Acdc.encodeMethodAcdc(that: acdc);
     loaded = await Acdc.parseStaticMethodAcdc(stream: encoded);
   }
@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
             issuer.isNotEmpty ? Text("issuer: $issuer") : Container(),
             TextButton(
                 onPressed: () async {
-                  await Acdc.getDataMethodAcdc(that: acdc)
+                  await Acdc.getAttributesMethodAcdc(that: acdc)
                       .then((value) => setState(() {
                             data = value;
                           }));

@@ -13,13 +13,42 @@ class Acdc {
           : DynamicLibrary.open(path);
   static final api = DartImpl(dylib);
 
-  static Future<ACDC> newStaticMethodAcdc(
+  static Future<ACDC> issuePublicUntargetedStaticMethodAcdc(
       {required String issuer,
       required String schema,
-      required String data,
+      required String attributes,
       dynamic hint}) async {
-    return await api.newStaticMethodAcdc(
-        issuer: issuer, schema: schema, attributes: data);
+    return await api.issuePublicUntargetedStaticMethodAcdc(
+        issuer: issuer, schema: schema, attributes: attributes);
+  }
+
+  static Future<ACDC> issuePublicTargetedStaticMethodAcdc(
+      {required String issuer,
+      required String target,
+      required String schema,
+      required String attributes,
+      dynamic hint}) async {
+    return await api.issuePublicTargetedStaticMethodAcdc(
+        issuer: issuer, target: target, schema: schema, attributes: attributes);
+  }
+
+  static Future<ACDC> issuePrivateUntargetedStaticMethodAcdc(
+      {required String issuer,
+      required String schema,
+      required String attributes,
+      dynamic hint}) async {
+    return await api.issuePrivateUntargetedStaticMethodAcdc(
+        issuer: issuer, schema: schema, attributes: attributes);
+  }
+
+  static Future<ACDC> issuePrivateTargetedStaticMethodAcdc(
+      {required String issuer,
+      required String target,
+      required String schema,
+      required String attributes,
+      dynamic hint}) async {
+    return await api.issuePrivateTargetedStaticMethodAcdc(
+        issuer: issuer, target: target, schema: schema, attributes: attributes);
   }
 
   static Future<String> encodeMethodAcdc(
@@ -32,9 +61,9 @@ class Acdc {
     return await api.getIssuerMethodAcdc(that: that);
   }
 
-  static Future<String> getDataMethodAcdc(
+  static Future<String> getAttributesMethodAcdc(
       {required ACDC that, dynamic hint}) async {
-    return await api.getDataMethodAcdc(that: that);
+    return await api.getAttributesMethodAcdc(that: that);
   }
 
   static Future<String> getSchemaMethodAcdc(
