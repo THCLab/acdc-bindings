@@ -32,9 +32,9 @@ class Acdc {
     return await api.getIssuerMethodAcdc(that: that);
   }
 
-  static Future<String> getDataMethodAcdc(
+  static Future<String> getAttributesMethodAcdc(
       {required ACDC that, dynamic hint}) async {
-    return await api.getDataMethodAcdc(that: that);
+    return await api.getAttributesMethodAcdc(that: that);
   }
 
   static Future<String> getSchemaMethodAcdc(
