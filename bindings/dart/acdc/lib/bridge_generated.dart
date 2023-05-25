@@ -56,9 +56,9 @@ abstract class Dart {
 
   FlutterRustBridgeTaskConstMeta get kGetIssuerMethodAcdcConstMeta;
 
-  Future<String> getDataMethodAcdc({required ACDC that, dynamic hint});
+  Future<String> getAttributesMethodAcdc({required ACDC that, dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta get kGetDataMethodAcdcConstMeta;
+  FlutterRustBridgeTaskConstMeta get kGetAttributesMethodAcdcConstMeta;
 
   Future<String> getSchemaMethodAcdc({required ACDC that, dynamic hint});
 
@@ -154,7 +154,8 @@ class ACDC {
         that: this,
       );
 
-  Future<String> getData({dynamic hint}) => bridge.getDataMethodAcdc(
+  Future<String> getAttributes({dynamic hint}) =>
+      bridge.getAttributesMethodAcdc(
         that: this,
       );
 
@@ -323,21 +324,21 @@ class DartImpl implements Dart {
         argNames: ["that"],
       );
 
-  Future<String> getDataMethodAcdc({required ACDC that, dynamic hint}) {
+  Future<String> getAttributesMethodAcdc({required ACDC that, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_acdc(that);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) =>
-          _platform.inner.wire_get_data__method__ACDC(port_, arg0),
+          _platform.inner.wire_get_attributes__method__ACDC(port_, arg0),
       parseSuccessData: _wire2api_String,
-      constMeta: kGetDataMethodAcdcConstMeta,
+      constMeta: kGetAttributesMethodAcdcConstMeta,
       argValues: [that],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kGetDataMethodAcdcConstMeta =>
+  FlutterRustBridgeTaskConstMeta get kGetAttributesMethodAcdcConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
-        debugName: "get_data__method__ACDC",
+        debugName: "get_attributes__method__ACDC",
         argNames: ["that"],
       );
 
@@ -746,22 +747,23 @@ class DartWire implements FlutterRustBridgeWireBase {
   late final _wire_get_issuer__method__ACDC = _wire_get_issuer__method__ACDCPtr
       .asFunction<void Function(int, ffi.Pointer<wire_ACDC>)>();
 
-  void wire_get_data__method__ACDC(
+  void wire_get_attributes__method__ACDC(
     int port_,
     ffi.Pointer<wire_ACDC> that,
   ) {
-    return _wire_get_data__method__ACDC(
+    return _wire_get_attributes__method__ACDC(
       port_,
       that,
     );
   }
 
-  late final _wire_get_data__method__ACDCPtr = _lookup<
+  late final _wire_get_attributes__method__ACDCPtr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_ACDC>)>>('wire_get_data__method__ACDC');
-  late final _wire_get_data__method__ACDC = _wire_get_data__method__ACDCPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_ACDC>)>();
+              ffi.Pointer<wire_ACDC>)>>('wire_get_attributes__method__ACDC');
+  late final _wire_get_attributes__method__ACDC =
+      _wire_get_attributes__method__ACDCPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_ACDC>)>();
 
   void wire_get_schema__method__ACDC(
     int port_,

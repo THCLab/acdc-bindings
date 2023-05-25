@@ -139,16 +139,19 @@ fn wire_get_issuer__method__ACDC_impl(port_: MessagePort, that: impl Wire2Api<AC
         },
     )
 }
-fn wire_get_data__method__ACDC_impl(port_: MessagePort, that: impl Wire2Api<ACDC> + UnwindSafe) {
+fn wire_get_attributes__method__ACDC_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<ACDC> + UnwindSafe,
+) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "get_data__method__ACDC",
+            debug_name: "get_attributes__method__ACDC",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
         move || {
             let api_that = that.wire2api();
-            move |task_callback| ACDC::get_data(&api_that)
+            move |task_callback| ACDC::get_attributes(&api_that)
         },
     )
 }

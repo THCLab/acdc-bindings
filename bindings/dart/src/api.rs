@@ -91,9 +91,9 @@ impl ACDC {
         self.0.issuer.clone()
     }
 
-    pub fn get_data(&self) -> Result<String> {
+    pub fn get_attributes(&self) -> Result<String> {
         Ok(match &self.0.attrs {
-            acdc::Attributes::Inline(data) => serde_json::to_string(&data)?,
+            acdc::Attributes::Inline(data) => serde_json::to_string(&data.data)?,
             acdc::Attributes::External(data) => data.to_string(),
         })
     }

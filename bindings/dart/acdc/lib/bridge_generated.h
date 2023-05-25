@@ -60,7 +60,7 @@ void wire_encode__method__ACDC(int64_t port_, struct wire_ACDC *that);
 
 void wire_get_issuer__method__ACDC(int64_t port_, struct wire_ACDC *that);
 
-void wire_get_data__method__ACDC(int64_t port_, struct wire_ACDC *that);
+void wire_get_attributes__method__ACDC(int64_t port_, struct wire_ACDC *that);
 
 void wire_get_schema__method__ACDC(int64_t port_, struct wire_ACDC *that);
 
@@ -88,7 +88,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_issue_private_targeted__static_method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_encode__method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_get_issuer__method__ACDC);
-    dummy_var ^= ((int64_t) (void*) wire_get_data__method__ACDC);
+    dummy_var ^= ((int64_t) (void*) wire_get_attributes__method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_get_schema__method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_get_digest__method__ACDC);
     dummy_var ^= ((int64_t) (void*) wire_parse__static_method__ACDC);
