@@ -18,3 +18,9 @@ New .so files
 
 ## 0.1.3
 Support for targeted/untargeted ACDC (Android)
+
+## 1.0.0
+Support for `registryId`
+
+## 1.1.0
+Fixed `flutter_rust_bridge` dependency

@@ -15,40 +15,58 @@ class Acdc {
 
   static Future<ACDC> issuePublicUntargetedStaticMethodAcdc(
       {required String issuer,
+      required String registryId,
       required String schema,
       required String attributes,
       dynamic hint}) async {
     return await api.issuePublicUntargetedStaticMethodAcdc(
-        issuer: issuer, schema: schema, attributes: attributes);
+        issuer: issuer,
+        registryId: registryId,
+        schema: schema,
+        attributes: attributes);
   }
 
   static Future<ACDC> issuePublicTargetedStaticMethodAcdc(
       {required String issuer,
+      required String registryId,
       required String target,
       required String schema,
       required String attributes,
       dynamic hint}) async {
     return await api.issuePublicTargetedStaticMethodAcdc(
-        issuer: issuer, target: target, schema: schema, attributes: attributes);
+        issuer: issuer,
+        registryId: registryId,
+        target: target,
+        schema: schema,
+        attributes: attributes);
   }
 
   static Future<ACDC> issuePrivateUntargetedStaticMethodAcdc(
       {required String issuer,
       required String schema,
+      required String registryId,
       required String attributes,
       dynamic hint}) async {
     return await api.issuePrivateUntargetedStaticMethodAcdc(
-        issuer: issuer, schema: schema, attributes: attributes);
+        issuer: issuer,
+        schema: schema,
+        registryId: registryId,
+        attributes: attributes);
   }
 
   static Future<ACDC> issuePrivateTargetedStaticMethodAcdc(
       {required String issuer,
+      required String registryId,
       required String target,
       required String schema,
       required String attributes,
       dynamic hint}) async {
     return await api.issuePrivateTargetedStaticMethodAcdc(
-        issuer: issuer, target: target, schema: schema, attributes: attributes);
+        issuer: issuer,
+        registryId: registryId,
+        target: target,
+        schema: schema,
+        attributes: attributes);
   }
 
   static Future<String> encodeMethodAcdc(
@@ -69,6 +87,11 @@ class Acdc {
   static Future<String> getSchemaMethodAcdc(
       {required ACDC that, dynamic hint}) async {
     return await api.getSchemaMethodAcdc(that: that);
+  }
+
+  static Future<String> getDigestMethodAcdc(
+      {required ACDC that, dynamic hint}) async {
+    return await api.getDigestMethodAcdc(that: that);
   }
 
   static Future<ACDC> parseStaticMethodAcdc(

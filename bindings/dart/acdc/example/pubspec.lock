@@ -7,7 +7,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.3"
+    version: "1.1.0"
   archive:
     dependency: transitive
     description:
@@ -68,10 +68,17 @@ packages:
     dependency: transitive
     description:
       name: collection
+<<<<<<< Updated upstream
       sha256: ee67cb0715911d28db6bf4af1026078bd6f0128b07a5f66fb2ed94ec6783c09a
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
+=======
+      sha256: "4a07be6cb69c84d677a6c3096fcf960cc3285a8330b4603e0d463d15d9bd934c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.17.1"
+>>>>>>> Stashed changes
   convert:
     dependency: transitive
     description:
@@ -158,10 +165,10 @@ packages:
     dependency: transitive
     description:
       name: js
-      sha256: "5528c2f391ededb7775ec1daa69e65a2d61276f7552de2b5f7b8d34ee9fd4ab7"
+      sha256: f2c445dce49627136094980615a031419f7f3eb393237e4ecd97ac15dea343f3
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.5"
+    version: "0.6.7"
   lints:
     dependency: transitive
     description:
@@ -182,18 +189,32 @@ packages:
     dependency: transitive
     description:
       name: matcher
+<<<<<<< Updated upstream
       sha256: "1803e76e6653768d64ed8ff2e1e67bea3ad4b923eb5c56a295c3e634bad5960e"
       url: "https://pub.dev"
     source: hosted
     version: "0.12.16"
+=======
+      sha256: "6501fbd55da300384b768785b83e5ce66991266cec21af89ab9ae7f5ce1c4cbb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.12.15"
+>>>>>>> Stashed changes
   material_color_utilities:
     dependency: transitive
     description:
       name: material_color_utilities
+<<<<<<< Updated upstream
       sha256: "9528f2f296073ff54cb9fee677df673ace1218163c3bc7628093e7eed5203d41"
       url: "https://pub.dev"
     source: hosted
     version: "0.5.0"
+=======
+      sha256: "586678f20e112219ed0f73215f01bcdf1d769824ba2ebae45ad918a9bfde9bdb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0"
+>>>>>>> Stashed changes
   meta:
     dependency: transitive
     description:
@@ -254,10 +275,17 @@ packages:
     dependency: transitive
     description:
       name: puppeteer
+<<<<<<< Updated upstream
       sha256: "43678bb9bd69385cf896ea13fe8c965d95850cba48af8dffd6c130565ebdf5ed"
       url: "https://pub.dev"
     source: hosted
     version: "3.4.0"
+=======
+      sha256: "59e723cc5b69537159a7c34efd645dc08a6a1ac4647d7d7823606802c0f93cdb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.0"
+>>>>>>> Stashed changes
   shelf:
     dependency: transitive
     description:
@@ -331,10 +359,17 @@ packages:
     dependency: transitive
     description:
       name: test_api
+<<<<<<< Updated upstream
       sha256: "5c2f730018264d276c20e4f1503fd1308dfbbae39ec8ee63c5236311ac06954b"
       url: "https://pub.dev"
     source: hosted
     version: "0.6.1"
+=======
+      sha256: daadc9baabec998b062c9091525aa95786508b1c48e9c30f1f891b8bf6ff2e64
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.2"
+>>>>>>> Stashed changes
   tuple:
     dependency: transitive
     description:
@@ -392,5 +427,9 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
+<<<<<<< Updated upstream
   dart: ">=3.1.0 <4.0.0"
+=======
+  dart: ">=3.0.6 <4.0.0"
+>>>>>>> Stashed changes
   flutter: ">=2.5.0"
