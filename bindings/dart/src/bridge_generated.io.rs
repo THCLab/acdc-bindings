@@ -5,21 +5,36 @@ use super::*;
 pub extern "C" fn wire_issue_public_untargeted__static_method__ACDC(
     port_: i64,
     issuer: *mut wire_uint_8_list,
+    registry_id: *mut wire_uint_8_list,
     schema: *mut wire_uint_8_list,
     attributes: *mut wire_uint_8_list,
 ) {
-    wire_issue_public_untargeted__static_method__ACDC_impl(port_, issuer, schema, attributes)
+    wire_issue_public_untargeted__static_method__ACDC_impl(
+        port_,
+        issuer,
+        registry_id,
+        schema,
+        attributes,
+    )
 }
 
 #[no_mangle]
 pub extern "C" fn wire_issue_public_targeted__static_method__ACDC(
     port_: i64,
     issuer: *mut wire_uint_8_list,
+    registry_id: *mut wire_uint_8_list,
     target: *mut wire_uint_8_list,
     schema: *mut wire_uint_8_list,
     attributes: *mut wire_uint_8_list,
 ) {
-    wire_issue_public_targeted__static_method__ACDC_impl(port_, issuer, target, schema, attributes)
+    wire_issue_public_targeted__static_method__ACDC_impl(
+        port_,
+        issuer,
+        registry_id,
+        target,
+        schema,
+        attributes,
+    )
 }
 
 #[no_mangle]
@@ -27,20 +42,35 @@ pub extern "C" fn wire_issue_private_untargeted__static_method__ACDC(
     port_: i64,
     issuer: *mut wire_uint_8_list,
     schema: *mut wire_uint_8_list,
+    registry_id: *mut wire_uint_8_list,
     attributes: *mut wire_uint_8_list,
 ) {
-    wire_issue_private_untargeted__static_method__ACDC_impl(port_, issuer, schema, attributes)
+    wire_issue_private_untargeted__static_method__ACDC_impl(
+        port_,
+        issuer,
+        schema,
+        registry_id,
+        attributes,
+    )
 }
 
 #[no_mangle]
 pub extern "C" fn wire_issue_private_targeted__static_method__ACDC(
     port_: i64,
     issuer: *mut wire_uint_8_list,
+    registry_id: *mut wire_uint_8_list,
     target: *mut wire_uint_8_list,
     schema: *mut wire_uint_8_list,
     attributes: *mut wire_uint_8_list,
 ) {
-    wire_issue_private_targeted__static_method__ACDC_impl(port_, issuer, target, schema, attributes)
+    wire_issue_private_targeted__static_method__ACDC_impl(
+        port_,
+        issuer,
+        registry_id,
+        target,
+        schema,
+        attributes,
+    )
 }
 
 #[no_mangle]

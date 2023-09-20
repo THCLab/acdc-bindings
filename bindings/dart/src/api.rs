@@ -9,6 +9,7 @@ pub struct ACDC(pub RustOpaque<Attestation>);
 impl ACDC {
     pub fn issue_public_untargeted(
         issuer: String,
+        registry_id: String,
         schema: String,
         attributes: String,
     ) -> Result<ACDC> {
@@ -17,6 +18,7 @@ impl ACDC {
             .with_context(|| "Attributes must be valid JSON".to_string())?;
         let attestation = Attestation::new_public_untargeted(
             &issuer,
+            registry_id,
             schema
                 .parse()
                 .with_context(|| "Invalid schema SAI".to_string())?,
@@ -27,6 +29,7 @@ impl ACDC {
 
     pub fn issue_public_targeted(
         issuer: String,
+        registry_id: String,
         target: String,
         schema: String,
         attributes: String,
@@ -37,6 +40,7 @@ impl ACDC {
         let attestation = Attestation::new_public_targeted(
             &issuer,
             &target,
+            registry_id,
             schema
                 .parse()
                 .with_context(|| "Invalid schema SAI".to_string())?,
@@ -48,6 +52,7 @@ impl ACDC {
     pub fn issue_private_untargeted(
         issuer: String,
         schema: String,
+        registry_id: String,
         attributes: String,
     ) -> Result<ACDC> {
         let attributes: InlineAttributes = attributes
@@ -55,6 +60,7 @@ impl ACDC {
             .with_context(|| "Attributes must be valid JSON".to_string())?;
         let attestation = Attestation::new_private_untargeted(
             &issuer,
+            registry_id,
             schema
                 .parse()
                 .with_context(|| "Invalid schema SAI".to_string())?,
@@ -65,6 +71,7 @@ impl ACDC {
 
     pub fn issue_private_targeted(
         issuer: String,
+        registry_id: String,
         target: String,
         schema: String,
         attributes: String,
@@ -75,6 +82,7 @@ impl ACDC {
         let attestation = Attestation::new_private_targeted(
             &issuer,
             &target,
+            registry_id,
             schema
                 .parse()
                 .with_context(|| "Invalid schema SAI".to_string())?,
