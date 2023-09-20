@@ -15,7 +15,7 @@ lto = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-flutter_rust_bridge = "1.70.0"
+flutter_rust_bridge = "1.82.1"
 acdc = {git = "https://github.com/THCLab/acdc-rust"}
 serde_json = "1.0.93"
 said = { git = "https://github.com/THCLab/cesrox", branch = "macros", features = ["macros"]  }

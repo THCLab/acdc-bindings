@@ -36,11 +36,13 @@ intptr_t init_frb_dart_api_dl(void *obj);
 
 void wire_issue_public_untargeted__static_method__ACDC(int64_t port_,
                                                        struct wire_uint_8_list *issuer,
+                                                       struct wire_uint_8_list *registry_id,
                                                        struct wire_uint_8_list *schema,
                                                        struct wire_uint_8_list *attributes);
 
 void wire_issue_public_targeted__static_method__ACDC(int64_t port_,
                                                      struct wire_uint_8_list *issuer,
+                                                     struct wire_uint_8_list *registry_id,
                                                      struct wire_uint_8_list *target,
                                                      struct wire_uint_8_list *schema,
                                                      struct wire_uint_8_list *attributes);
@@ -48,10 +50,12 @@ void wire_issue_public_targeted__static_method__ACDC(int64_t port_,
 void wire_issue_private_untargeted__static_method__ACDC(int64_t port_,
                                                         struct wire_uint_8_list *issuer,
                                                         struct wire_uint_8_list *schema,
+                                                        struct wire_uint_8_list *registry_id,
                                                         struct wire_uint_8_list *attributes);
 
 void wire_issue_private_targeted__static_method__ACDC(int64_t port_,
                                                       struct wire_uint_8_list *issuer,
+                                                      struct wire_uint_8_list *registry_id,
                                                       struct wire_uint_8_list *target,
                                                       struct wire_uint_8_list *schema,
                                                       struct wire_uint_8_list *attributes);
